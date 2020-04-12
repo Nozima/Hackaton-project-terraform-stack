@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ecr_readOnly_role" {
-  name = "ecr_readOnly_role"
+  name = "${format("ecr_readOnly_role_%s", terraform.workspace)}"
 
   assume_role_policy = <<EOF
 {
@@ -18,13 +18,13 @@ resource "aws_iam_role" "ecr_readOnly_role" {
 EOF
 
   tags = {
-      Name = "ecr_readOnly_role"
+      Name = "${format("ecr_readOnly_role_%s", terraform.workspace)}"
   }
 }
 
 resource "aws_iam_instance_profile" "ecr_readOnly_profile" {
-  name = "ecr_readOnly_profile"
-  role = "${aws_iam_role.ecr_readOnly_role.name}"
+  name = "${format("ecr_readOnly_policy_%s", terraform.workspace)}"
+  role = "${aws_iam_role.ecr_readOnly_role.id}"
 }
 
 resource "aws_iam_role_policy" "ecr_readOnly_policy" {
