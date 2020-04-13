@@ -23,11 +23,6 @@ variable "INSTANCE_USERNAME" {
 }
 variable "ECR_REGISTRY" {
 }
-
-/*
 variable "bucket_workspace" {
-  default = "${format("hackathon-fiap-1dvp-333356-%s", terraform.workspace)}"
+#  default = "${format("linkteen-333563-%s", terraform.workspace)}"
 }
-*/
-
-#var.bucket_workspace

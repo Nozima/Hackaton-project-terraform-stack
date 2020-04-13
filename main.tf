@@ -42,7 +42,6 @@ resource "random_shuffle" "random_subnet" {
 
 
 resource "aws_elb" "web" {
-  
   name = "${format("elb-%s", terraform.workspace)}"
 
   subnets         = data.aws_subnet_ids.all.ids

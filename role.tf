@@ -1,6 +1,5 @@
 resource "aws_iam_role" "ecr_readOnly_role" {
   name = "${format("ecr_readOnly_role_%s", terraform.workspace)}"
-
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
